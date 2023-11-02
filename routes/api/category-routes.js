@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
   // create a new category
   Category.create(req.body)
     .then((category)=>{
-      res.status(200).json(product);
+      res.status(200).json(category);
     })
     .catch((err) => {
       console.log(err);
@@ -65,11 +65,10 @@ router.delete('/:id', async(req, res) => {
         id:req.params.id,
       }
     });
-    // res.status(200).json('Category Deleted');
+    res.status(200).json('Category Deleted');
   }catch{
-    console.log("catch error")
-    // res.status(500).json(err);
+    res.status(500).json(err);
   }
-});
 
+});
 module.exports = router;
